@@ -40,7 +40,7 @@ const App: FC = () => {
       <header>
         <h1>『SLAM DUNK』登場人物</h1>
       </header>
-      <CharacterList school="湘北高校" characters={characters} />
+      <CharacterList characters={characters} />
     </div>
   );
 };

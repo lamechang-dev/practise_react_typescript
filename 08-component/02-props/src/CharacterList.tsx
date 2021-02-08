@@ -9,7 +9,7 @@ export type Character = {
 };
 
 type Props = {
-  school: string;
+  school?: string;
   characters: Character[];
 };
 
@@ -18,7 +18,7 @@ const CharacterList: FC<Props> = (props) => {
 
   return (
     <>
-      <Header as="h2">{school}</Header>
+      <Header as="h2">{school ?? '??高校'}</Header>
       <Item.Group>
         {characters.map((character) => (
           <Item key={character.id}>
