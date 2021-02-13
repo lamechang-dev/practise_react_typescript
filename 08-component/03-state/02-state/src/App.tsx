@@ -35,10 +35,16 @@ class App extends Component<unknown, State> {
           </Statistic>
           <Card.Content>
             <div className="ui two buttons">
-              <Button color="red" onClick={() => this.reset()}>
+              <Button
+                color="red"
+                onClick={(e: SyntheticEvent) => this.reset(e)}
+              >
                 Reset
               </Button>
-              <Button color="green" onClick={() => this.increment()}>
+              <Button
+                color="green"
+                onClick={(e: SyntheticEvent) => this.increment(e)}
+              >
                 +1
               </Button>
             </div>
