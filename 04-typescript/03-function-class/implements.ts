@@ -1,6 +1,8 @@
+export {};
+
 interface Shape {
   readonly name: string;
-  getArea: () => number;
+  getArea(): number;
 }
 
 interface Quadrangle {
@@ -11,7 +13,8 @@ interface Quadrangle {
 }
 
 class Rectangle implements Shape, Quadrangle {
-  readonly name = 'rectangle';
+  readonly author: string = "Jhon";
+  readonly name: string = "rectangle";
   sideA: number;
   sideB: number;
 
@@ -20,7 +23,10 @@ class Rectangle implements Shape, Quadrangle {
     this.sideB = sideB;
   }
 
-  getArea = (): number => this.sideA * this.sideB;
+  getArea = (): number => {
+    const result: number = this.sideA * this.sideB;
+    return result;
+  };
 }
 
 const rect = new Rectangle(6, 5);

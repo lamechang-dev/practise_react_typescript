@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Button, Card, Statistic } from 'semantic-ui-react';
 import './Counter.css';
 
@@ -6,6 +6,12 @@ const Counter: FC = () => {
   const [count, setCount] = useState(0);
   const increment = () => setCount((c) => c + 1);
   const reset = () => setCount(0);
+
+  useEffect((): void => {
+    if (count === 10) {
+      console.log('count is now reached to 10 !!!');
+    }
+  }, [count]);
 
   return (
     <Card>
