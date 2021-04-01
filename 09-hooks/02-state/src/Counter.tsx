@@ -5,6 +5,7 @@ import './Counter.css';
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
   const increment = () => setCount((c) => c + 1);
+  const incrementByTwo = () => setCount((c) => c + 2);
   const reset = () => setCount(0);
 
   useEffect((): void => {
@@ -20,12 +21,15 @@ const Counter: FC = () => {
         <Statistic.Value>{count}</Statistic.Value>
       </Statistic>
       <Card.Content>
-        <div className="ui two buttons">
+        <div className="ui three buttons">
           <Button color="red" onClick={reset}>
             Reset
           </Button>
           <Button color="green" onClick={increment}>
             +1
+          </Button>
+          <Button color="blue" onClick={incrementByTwo}>
+            +2
           </Button>
         </div>
       </Card.Content>

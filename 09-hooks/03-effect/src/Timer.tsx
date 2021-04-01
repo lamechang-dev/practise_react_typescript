@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useMemo } from 'react';
+import { FC, useEffect, useState, useMemo, useCallback } from 'react';
 import { Button, Card, Icon, Statistic } from 'semantic-ui-react';
 import getPrimes from 'utils/math-tool';
 import './Timer.css';
@@ -8,7 +8,7 @@ type TimerProps = { limit: number };
 const Timer: FC<TimerProps> = ({ limit }) => {
   const [timeLeft, setTimeLeft] = useState(limit);
   const primes = useMemo(() => getPrimes(limit), [limit]);
-  const reset = (): void => setTimeLeft(limit);
+  const reset = useCallback(() => setTimeLeft(limit), [limit]);
   const tick = (): void => setTimeLeft((t) => t - 1);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const Timer: FC<TimerProps> = ({ limit }) => {
   }, []);
 
   useEffect(() => {
-    if (timeLeft === 0) setTimeLeft(limit);
-  }, [limit, timeLeft]);
+    if (timeLeft === 0) reset();
+  }, [reset, timeLeft]);
 
   return (
     <Card>
