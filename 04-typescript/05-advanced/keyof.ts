@@ -16,8 +16,13 @@ const test = {
 
 type ValueOf<T> = T[keyof T]
 
-const test2: ValueOf<typeof test> = 11;
+const test2: ValueOf<typeof test> = 12;
 
 type testKeyType = keyof typeof test;
 
 const a: testKeyType = 'a';
+
+for (const key of Object.keys(test)) {
+  console.log(key);
+  console.log(test[key])
+}
