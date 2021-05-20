@@ -12,7 +12,11 @@
 const test = {
   a: 12,
   b: 12
-};
+} as const;
+
+type ValueOf<T> = T[keyof T]
+
+const test2: ValueOf<typeof test> = 11;
 
 type testKeyType = keyof typeof test;
 
