@@ -11,3 +11,19 @@ const figMap: FigMap = {
   three: 3,
 };
 // figMap.four = 4; /* compile error */
+
+
+type Cat = 'peco' | 'techi' | 'teto';
+type CatMap = { [k in Cat]: number };
+
+const catMap: CatMap = {
+  'peco': 12,
+  'techi': 15,
+  'teto': 16
+};
+
+type CatAgeData = { [name: string]: number };
+
+const catAgeData: CatAgeData = {
+  'peco': 12,
+};
